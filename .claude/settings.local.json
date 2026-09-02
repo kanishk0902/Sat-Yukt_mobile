@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:4000/health -w \"\\\\nHTTP %{http_code}\\\\n\" --max-time 5)",
+      "Bash(curl -s http://localhost:8081/status -w \"\\\\nHTTP %{http_code}\\\\n\" --max-time 5)",
+      "Bash(curl -s \"http://localhost:8081/node_modules/expo/AppEntry.bundle?platform=android&dev=true\" -o /tmp/bundle_check3.js -w \"HTTP %{http_code}, size %{size_download} bytes\\\\n\" --max-time 120)",
+      "Bash(rm -f /tmp/bundle_check3.js)",
+      "Bash(kill 70503)",
+      "Bash(npm start *)",
+      "Bash(curl -s http://localhost:4000/health -w \"\\\\nHTTP %{http_code}\\\\n\")",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL available'\\)\")"
+    ],
+    "additionalDirectories": [
+      "/private/tmp"
+    ]
+  }
+}
